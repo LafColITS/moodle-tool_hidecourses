@@ -61,11 +61,11 @@ $customtext = new stdClass();
 $customtext->category = $category->name;
 
 switch ($action) {
-    case CHC_ACTION_HIDE:
+    case TOOL_HIDECOURSES_ACTION_HIDE:
         $actionstring = new lang_string('hideallcourses', 'tool_hidecourses');
         $customtext->state = new lang_string('hidden', 'tool_hidecourses');
         break;
-    case CHC_ACTION_SHOW:
+    case TOOL_HIDECOURSES_ACTION_SHOW:
         $actionstring = new lang_string('showallcourses', 'tool_hidecourses');
         $customtext->state = new lang_string('visible', 'tool_hidecourses');
         break;
