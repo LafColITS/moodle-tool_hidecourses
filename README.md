@@ -17,6 +17,8 @@ Usage
 -----
 The tool adds two links to the category navigation block, "Hide all courses" and "Show all courses." Each will take the user to a page describing what will happen and requesting confirmation. On confirmation, Moodle will create an "[adhoc task](https://docs.moodle.org/dev/Task_API#Adhoc_tasks)" to change all the settings in the background. This requires the cron be enabled. Each setting change will be logged in the standard Moodle log store.
 
+If you're using Boost or a similar theme, you may need to access /course/index.php directly, navigate to the desired category, then click the edit cog at top right to reach the links.
+
 Configuration
 -------------
 The tool has no options but does require, as mentioned above, that cron be running.
