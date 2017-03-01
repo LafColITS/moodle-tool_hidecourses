@@ -49,7 +49,7 @@ class tool_hidecourses_hidecourses_testcase extends advanced_testcase {
         $task->set_custom_data(
             array(
                 'category' => $category->id,
-                'action' => CHC_ACTION_HIDE
+                'action' => TOOL_HIDECOURSES_ACTION_HIDE
             )
         );
         \core\task\manager::queue_adhoc_task($task);

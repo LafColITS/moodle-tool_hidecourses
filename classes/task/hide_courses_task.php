@@ -45,10 +45,10 @@ class hide_courses_task extends \core\task\adhoc_task {
 
         $actionfunction = '';
         switch($data->action) {
-            case CHC_ACTION_HIDE:
+            case TOOL_HIDECOURSES_ACTION_HIDE:
                 $actionfunction = 'action_course_hide';
                 break;
-            case CHC_ACTION_SHOW:
+            case TOOL_HIDECOURSES_ACTION_SHOW:
                 $actionfunction = 'action_course_show';
                 break;
             default:

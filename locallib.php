@@ -22,5 +22,5 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-define('CHC_ACTION_HIDE', 0);
-define('CHC_ACTION_SHOW', 1);
+define('TOOL_HIDECOURSES_ACTION_HIDE', 0);
+define('TOOL_HIDECOURSES_ACTION_SHOW', 1);
