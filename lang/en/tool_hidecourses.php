@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 $string['changevisibilityconfirm'] = 'This page lets you set the visibility of all courses in the category <strong>{$a->category}</strong> and its subcategories to <strong>{$a->state}</strong>. This action cannot be undone.';
 $string['hidden'] = 'hidden from students';
 $string['hideallcourses'] = 'Hide all courses';
-$string['pluginname'] = 'Category Hide Courses';
+$string['pluginname'] = 'Hide courses';
 $string['showallcourses'] = 'Show all courses';
 $string['updatequeued'] = 'An adhoc task has been queued to update all the courses in the category <strong>{$a}</strong>. It will run the next time cron executes.';
 $string['visible'] = 'visible to students';
