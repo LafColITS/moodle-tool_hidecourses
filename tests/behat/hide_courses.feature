@@ -22,14 +22,14 @@ Background:
 @javascript
 Scenario: Manager hides all but one course
   When I log in as "admin"
-  And I am on course index
-  And I follow "Category 1"
-  When I navigate to "Hide all courses" in current page administration
+  And I go to the courses management page
+  And I click on category "Category 1" in the management interface
+  And I follow "Hide all courses"
   And I press "Confirm"
   And I trigger cron
   And I go to the courses management page
-  And I follow "Category 1"
-  And I follow "Category 2"
+  And I click on category "Category 1" in the management interface
+  And I click on category "Category 2" in the management interface
   And I click on "edit" action for "Course 2" in management course listing
   And the following fields match these values:
     | Visible | Hide |
