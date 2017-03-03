@@ -35,6 +35,7 @@ $context = \context_coursecat::instance($categoryid);
 // Ensure the user can be here.
 require_login(0, false);
 require_capability('moodle/course:visibility', $context);
+$returnurl = new \moodle_url('/course/management.php', array('categoryid' => $categoryid));
 
 if ($confirm && isloggedin() && confirm_sesskey()) {
     $task = new \tool_hidecourses\task\hide_courses_task();
@@ -45,7 +46,6 @@ if ($confirm && isloggedin() && confirm_sesskey()) {
         )
     );
     \core\task\manager::queue_adhoc_task($task);
-    $returnurl = new \moodle_url('/course/management.php', array('categoryid' => $categoryid));
     redirect($returnurl, get_string('updatequeued', 'tool_hidecourses', $category->name));
 }
 
@@ -70,7 +70,8 @@ switch ($action) {
         $customtext->state = new lang_string('visible', 'tool_hidecourses');
         break;
     default:
-        die;
+        print_error('invalidactionid', 'tool_hidecourses', $returnurl);
+        break;
 }
 
 $PAGE->set_context($context);
