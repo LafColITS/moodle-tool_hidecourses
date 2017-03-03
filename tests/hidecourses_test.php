@@ -35,18 +35,19 @@ class tool_hidecourses_hidecourses_testcase extends advanced_testcase {
         $this->setAdminUser();
         $this->resetAfterTest(true);
 
-        $user = $this->getDataGenerator()->create_user();
+        $this->getDataGenerator()->create_user();
         $category1 = $this->getDataGenerator()->create_category();
         $category2 = $this->getDataGenerator()->create_category(array('parent' => $category1->id));
-        $course1 = $this->getDataGenerator()->create_course(array('category' => $category1->id));
-        $course2 = $this->getDataGenerator()->create_course(array('category' => $category2->id));
-        $course3 = $this->getDataGenerator()->create_course(array('category' => $category2->id));
+        $this->getDataGenerator()->create_course(array('category' => $category1->id));
+        for ($i = 1; $i <= 100; $i++) {
+            $this->getDataGenerator()->create_course(array('category' => $category2->id));
+        }
 
         // Sanity check.
         $visiblecourses = $DB->count_records('course', array('category' => $category1->id, 'visible' => 1));
         $this->assertEquals(1, $visiblecourses);
         $visiblecourses = $DB->count_records('course', array('category' => $category2->id, 'visible' => 1));
-        $this->assertEquals(2, $visiblecourses);
+        $this->assertEquals(100, $visiblecourses);
 
         // Set courses to hidden.
         $task = new \tool_hidecourses\task\hide_courses_task();
@@ -86,6 +87,6 @@ class tool_hidecourses_hidecourses_testcase extends advanced_testcase {
         $visiblecourses = $DB->count_records('course', array('category' => $category1->id, 'visible' => 1));
         $this->assertEquals(0, $visiblecourses);
         $visiblecourses = $DB->count_records('course', array('category' => $category2->id, 'visible' => 1));
-        $this->assertEquals(2, $visiblecourses);
+        $this->assertEquals(100, $visiblecourses);
     }
 }

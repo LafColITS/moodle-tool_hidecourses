@@ -67,7 +67,10 @@ class hide_courses_task extends \core\task\adhoc_task {
             )
         );
         foreach ($courses as $course) {
-            \core_course\management\helper::$actionfunction($course);
+            $context = \context_course::instance($course->id);
+            if (has_capability('moodle/course:visibility', $context)) {
+                \core_course\management\helper::$actionfunction($course);
+            }
         }
     }
 }

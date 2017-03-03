@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 function tool_hidecourses_extend_navigation_category_settings($navigation, $context) {
-    if (has_capability('moodle/category:manage', $context)) {
+    if (has_capability('moodle/course:visibility', $context) {
         $navigation->add_node(
             navigation_node::create(
                 get_string('hideallcourses', 'tool_hidecourses'),
