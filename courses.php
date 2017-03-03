@@ -34,7 +34,7 @@ $context = \context_coursecat::instance($categoryid);
 
 // Ensure the user can be here.
 require_login(0, false);
-require_capability('moodle/category:manage', $context);
+require_capability('moodle/course:visibility', $context);
 
 if ($confirm && isloggedin() && confirm_sesskey()) {
     $task = new \tool_hidecourses\task\hide_courses_task();
