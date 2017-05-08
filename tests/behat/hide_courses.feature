@@ -32,9 +32,9 @@ Scenario: Manager hides all but one course
   And I follow "Category 2"
   And I click on "edit" action for "Course 2" in management course listing
   And the following fields match these values:
-    | Visible | Hide |
+    | Course visibility | Hide |
   And I go to the courses management page
   And I follow "Category 4"
   And I click on "edit" action for "Course 5" in management course listing
   And the following fields match these values:
-    | Visible | Show |
+    | Course visibility | Show |
