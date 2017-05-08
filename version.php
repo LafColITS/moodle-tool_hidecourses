@@ -22,8 +22,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017030300;
-$plugin->requires  = 2016120500;
+$plugin->version   = 2017030302;
+$plugin->requires  = 2017050500.00;
 $plugin->cron      = 0;
 $plugin->component = 'tool_hidecourses';
 $plugin->maturity  = MATURITY_STABLE;
