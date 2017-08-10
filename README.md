@@ -1,7 +1,7 @@
 Hide courses
 ============
 
-[![Build Status](https://api.travis-ci.org/LafColITS/moodle-tool_hidecourses.png)](https://api.travis-ci.org/LafColITS/moodle-tool_hidecourses)
+[![Build Status](https://api.travis-ci.org/LafColITS/moodle-tool_hidecourses.png?branch=MOODLE_32_STABLE)](https://api.travis-ci.org/LafColITS/moodle-tool_hidecourses)
 
 This admin tool allows managers to set all courses in a category (including subcategories) to either hidden from, or visible to, students. The intended use case is installations where all categories are already hidden by default and course visibility is the prime method for restricting access. At Lafayette, we combine this with overrides to `moodle/course:viewhiddencourses` at the category level to restict access by _teachers_ to old courses.
 
