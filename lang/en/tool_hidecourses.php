@@ -29,6 +29,7 @@ $string['hidden'] = 'hidden from students';
 $string['hideallcourses'] = 'Hide all courses';
 $string['invalidactionid'] = 'Invalid action id';
 $string['pluginname'] = 'Hide courses';
+$string['privacy:metadata'] = 'The Hide courses plugin does not store any personal data.';
 $string['showallcourses'] = 'Show all courses';
 $string['updatequeued'] = 'An adhoc task has been queued to update all the courses in the category <strong>{$a}</strong>. It will run the next time cron executes.';
 $string['visible'] = 'visible to students';
