@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 function tool_hidecourses_extend_navigation_category_settings($navigation, $context) {
-    if (has_capability('tool/hidecourses:hidecourses', \context_system::instance())) {
+    if (has_capability('tool/hidecourses:hidecourses', $context)) {
         $navigation->add_node(
             navigation_node::create(
                 get_string('hideallcourses', 'tool_hidecourses'),

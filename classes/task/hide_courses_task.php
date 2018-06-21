@@ -60,6 +60,10 @@ class hide_courses_task extends \core\task\adhoc_task {
             mtrace("Invalid category id");
             return;
         }
+        if (!has_capability('tool/hidecourses:hidecourses', \context_coursecat::instance($category->id))) {
+            mtrace("Insufficient permissions");
+            return;
+        }
         $courses = $category->get_courses(
             array(
                 'recursive' => true,
@@ -68,9 +72,7 @@ class hide_courses_task extends \core\task\adhoc_task {
         );
         foreach ($courses as $course) {
             $context = \context_course::instance($course->id);
-            if (has_capability('tool/hidecourses:hidecourses', \context_system::instance())) {
-                \core_course\management\helper::$actionfunction($course);
-            }
+            \core_course\management\helper::$actionfunction($course);
         }
     }
 }

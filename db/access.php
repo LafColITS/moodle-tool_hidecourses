@@ -27,11 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 $capabilities = array(
     'tool/hidecourses:hidecourses' => array(
         'captype' => 'write',
-        'contextlevel' => CONTEXT_SYSTEM,
+        'contextlevel' => CONTEXT_COURSECAT,
         'archetypes' => array(
-            'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:visibility'
     ),
 );
