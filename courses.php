@@ -34,7 +34,7 @@ $context = \context_coursecat::instance($categoryid);
 
 // Ensure the user can be here.
 require_login(0, false);
-require_capability('moodle/course:visibility', $context);
+require_capability('tool/hidecourses:hidecourses', $context);
 $returnurl = new \moodle_url('/course/management.php', array('categoryid' => $categoryid));
 
 if ($confirm && isloggedin() && confirm_sesskey()) {
