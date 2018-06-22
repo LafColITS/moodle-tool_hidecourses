@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 $string['changevisibilityconfirm'] = 'This page lets you set the visibility of all courses in the category <strong>{$a->category}</strong> and its subcategories to <strong>{$a->state}</strong>. This action cannot be undone.';
 $string['hidden'] = 'hidden from students';
 $string['hideallcourses'] = 'Hide all courses';
+$string['hidecourses:hidecourses'] = 'Hide all courses in a category.';
 $string['invalidactionid'] = 'Invalid action id';
 $string['pluginname'] = 'Hide courses';
 $string['privacy:metadata'] = 'The Hide courses plugin does not store any personal data.';
