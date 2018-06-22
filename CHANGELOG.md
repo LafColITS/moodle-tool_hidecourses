@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.2 (June 22, 2018)
+
+- Add missing language string
+
 ## 3.4.1 (June 21, 2018)
 
 - Implement specific permission for tool
