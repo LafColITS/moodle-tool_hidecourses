@@ -26,7 +26,7 @@ Feature: The hide courses tool allows a manager to hide courses in bulk
     And I follow "Category 1"
     When I navigate to "Hide all courses" in current page administration
     And I press "Confirm"
-    And I trigger cron
+    And I run the scheduled task "\tool_hidecourses\task\hide_courses_task"
     And I go to the courses management page
     And I follow "Category 1"
     And I follow "Category 2"
