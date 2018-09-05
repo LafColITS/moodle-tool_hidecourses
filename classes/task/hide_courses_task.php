@@ -24,7 +24,6 @@ namespace tool_hidecourses\task;
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot.'/lib/coursecatlib.php');
 require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
 
 class hide_courses_task extends \core\task\adhoc_task {
@@ -55,7 +54,7 @@ class hide_courses_task extends \core\task\adhoc_task {
                 mtrace("Invalid action specified");
                 return;
         }
-        $category = \coursecat::get($data->category);
+        $category = \core_course_category::get($data->category);
         if (!$category) {
             mtrace("Invalid category id");
             return;

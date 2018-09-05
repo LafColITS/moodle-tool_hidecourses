@@ -24,12 +24,11 @@
 
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
-require_once($CFG->dirroot.'/lib/coursecatlib.php');
 
 $categoryid = required_param('category', PARAM_INT);
 $action = required_param('action', PARAM_INT);
 $confirm = optional_param('confirm', 0, PARAM_BOOL);
-$category = \coursecat::get($categoryid);
+$category = \core_course_category::get($categoryid);
 $context = \context_coursecat::instance($categoryid);
 
 // Ensure the user can be here.

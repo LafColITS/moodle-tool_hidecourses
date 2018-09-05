@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Update internal API in light of [MDL-62742](https://tracker.moodle.org/browse/MDL-62742)
+
 ## 3.4.2 (June 22, 2018)
 
 - Add missing language string
