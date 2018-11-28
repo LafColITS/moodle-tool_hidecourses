@@ -7,7 +7,7 @@ This admin tool allows managers to set all courses in a category (including subc
 
 Requirements
 ------------
-- Moodle 3.6dev (build 2018083100.00 or later)
+- Moodle 3.6 (build 2018112800.00 or later)
 
 Installation
 ------------
