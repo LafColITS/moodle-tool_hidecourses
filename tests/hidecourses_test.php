@@ -28,6 +28,14 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
 
+
+/**
+ * Unit test for hiding and showing courses.
+ *
+ * @package   tool_hidecourses
+ * @copyright 2017 Lafayette College ITS
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class tool_hidecourses_hidecourses_testcase extends advanced_testcase {
     public function test_hide_course() {
         global $DB;

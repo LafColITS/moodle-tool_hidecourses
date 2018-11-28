@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Defines plugin-wide constants.
+ *
  * @package   tool_hidecourses
  * @copyright 2017 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,5 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * TOOL_HIDECOURSES_ACTION_HIDE - Defined action for hiding courses.
+ */
 define('TOOL_HIDECOURSES_ACTION_HIDE', 0);
+
+/**
+ * TOOL_HIDECOURSES_ACTION_SHOW - Defined action for making courses visible.
+ */
 define('TOOL_HIDECOURSES_ACTION_SHOW', 1);
