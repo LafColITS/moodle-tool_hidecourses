@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy implementation for tool_coursedaes.
+ * Privacy implementation for tool_hidecourses.
  *
  * @package   tool_hidecourses
  * @copyright 2018 Lafayette College ITS
@@ -27,7 +27,7 @@ namespace tool_hidecourses\privacy;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy implementation for tool_coursedaes.
+ * Privacy implementation for tool_hidecourses.
  *
  * @package   tool_hidecourses
  * @copyright 2018 Lafayette College ITS
