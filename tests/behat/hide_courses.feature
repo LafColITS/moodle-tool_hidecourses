@@ -7,10 +7,10 @@ Feature: The hide courses tool allows a manager to hide courses in bulk
   Background:
     Given the following "categories" exist:
     | name       | category | idnumber | visible |
-    | Category 1 | 0        | CAT1     | 0       |
-    | Category 2 | CAT1     | CAT2     | 0       |
-    | Category 3 | CAT1     | CAT3     | 0       |
-    | Category 4 | 0        | CAT4     | 0       |
+    | Test Category 1 | 0        | CAT1     | 0       |
+    | Test Category 2 | CAT1     | CAT2     | 0       |
+    | Test Category 3 | CAT1     | CAT3     | 0       |
+    | Test Category 4 | 0        | CAT4     | 0       |
     And the following "courses" exist:
     | fullname | shortname | category | visible |
     | Course 1 | C1        | CAT2     | 1       |
@@ -23,18 +23,18 @@ Feature: The hide courses tool allows a manager to hide courses in bulk
   Scenario: Manager hides all but one course
     When I log in as "admin"
     And I am on course index
-    And I follow "Category 1"
+    And I follow "Test Category 1"
     When I navigate to "Hide all courses" in current page administration
     And I press "Confirm"
     And I run all adhoc tasks
     And I go to the courses management page
-    And I follow "Category 1"
-    And I follow "Category 2"
+    And I follow "Test Category 1"
+    And I follow "Test Category 2"
     And I click on "edit" action for "Course 2" in management course listing
     And the following fields match these values:
     | Course visibility | Hide |
     And I go to the courses management page
-    And I follow "Category 4"
+    And I follow "Test Category 4"
     And I click on "edit" action for "Course 5" in management course listing
     And the following fields match these values:
     | Course visibility | Show |
