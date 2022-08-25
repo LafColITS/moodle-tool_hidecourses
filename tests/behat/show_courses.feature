@@ -20,7 +20,7 @@ Feature: The hide courses tool allows a manager to show courses in bulk
     | Course 5 | C5        | CAT4     | 0       |
 
   @javascript
-  Scenario: Manager shows all courses
+  Scenario: Manager shows all but one course
     When I log in as "admin"
     And I am on course index
     And I follow "Test Category 1"
@@ -37,4 +37,4 @@ Feature: The hide courses tool allows a manager to show courses in bulk
     And I follow "Test Category 4"
     And I click on "edit" action for "Course 5" in management course listing
     And the following fields match these values:
-    | Course visibility | Show |
+    | Course visibility | Hide |
