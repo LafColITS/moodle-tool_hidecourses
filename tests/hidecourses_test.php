@@ -36,7 +36,7 @@ require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
  * @copyright 2017 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class tool_hidecourses_hidecourses_testcase extends advanced_testcase {
+class tool_hidecourses_hidecourses_test extends advanced_testcase {
     public function test_hide_course() {
         global $DB;
 
