@@ -22,8 +22,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * TOOL_HIDECOURSES_ACTION_HIDE - Defined action for hiding courses.
  */

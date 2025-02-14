@@ -23,11 +23,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace tool_hidecourses;
+
 defined('MOODLE_INTERNAL') || die();
+
+use advanced_testcase;
+use tool_hidecourses\task\hide_courses_task;
 
 global $CFG;
 require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
-
 
 /**
  * Unit test for hiding and showing courses.
@@ -36,7 +40,7 @@ require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
  * @copyright 2017 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class tool_hidecourses_hidecourses_test extends advanced_testcase {
+class hidecourses_test extends advanced_testcase {
     public function test_hide_course() {
         global $DB;
 
@@ -58,11 +62,11 @@ class tool_hidecourses_hidecourses_test extends advanced_testcase {
         $this->assertEquals(100, $visiblecourses);
 
         // Set courses to hidden.
-        $task = new \tool_hidecourses\task\hide_courses_task();
+        $task = new hide_courses_task();
         $task->set_custom_data(
             array(
                 'category' => $category1->id,
-                'action' => TOOL_HIDECOURSES_ACTION_HIDE
+                'action' => TOOL_HIDECOURSES_ACTION_HIDE,
             )
         );
         \core\task\manager::queue_adhoc_task($task);
@@ -78,11 +82,11 @@ class tool_hidecourses_hidecourses_test extends advanced_testcase {
         $this->assertEquals(0, $visiblecourses);
 
         // Restore the subcategory only.
-        $task = new \tool_hidecourses\task\hide_courses_task();
+        $task = new hide_courses_task();
         $task->set_custom_data(
             array(
                 'category' => $category2->id,
-                'action' => TOOL_HIDECOURSES_ACTION_SHOW
+                'action' => TOOL_HIDECOURSES_ACTION_SHOW,
             )
         );
         \core\task\manager::queue_adhoc_task($task);

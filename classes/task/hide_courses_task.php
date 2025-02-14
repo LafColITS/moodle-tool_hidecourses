@@ -83,7 +83,7 @@ class hide_courses_task extends \core\task\adhoc_task {
         $courses = $category->get_courses(
             array(
                 'recursive' => true,
-                'limit' => 0
+                'limit' => 0,
             )
         );
         foreach ($courses as $course) {

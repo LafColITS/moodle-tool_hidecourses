@@ -41,7 +41,7 @@ if ($confirm && isloggedin() && confirm_sesskey()) {
     $task->set_custom_data(
         array(
             'category' => $categoryid,
-            'action' => $action
+            'action' => $action,
         )
     );
     \core\task\manager::queue_adhoc_task($task);
@@ -52,7 +52,7 @@ if ($confirm && isloggedin() && confirm_sesskey()) {
 $url = new \moodle_url('/admin/tool/hidecourses/courses.php',
     array(
         'category' => $categoryid,
-        'action' => $action
+        'action' => $action,
     )
 );
 
@@ -85,7 +85,7 @@ $confirmurl = new \moodle_url('/admin/tool/hidecourses/courses.php',
         'category' => $categoryid,
         'action' => $action,
         'confirm' => 1,
-        'sesskey' => sesskey()
+        'sesskey' => sesskey(),
     )
 );
 
