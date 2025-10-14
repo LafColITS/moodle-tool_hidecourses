@@ -23,7 +23,7 @@
  */
 
 require_once(__DIR__ . '/../../../config.php');
-require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
+require_once($CFG->dirroot . '/admin/tool/hidecourses/locallib.php');
 
 $categoryid = required_param('category', PARAM_INT);
 $action = required_param('action', PARAM_INT);
@@ -34,26 +34,27 @@ $context = \context_coursecat::instance($categoryid);
 // Ensure the user can be here.
 require_login(0, false);
 require_capability('tool/hidecourses:hidecourses', $context);
-$returnurl = new \moodle_url('/course/management.php', array('categoryid' => $categoryid));
+$returnurl = new \moodle_url('/course/management.php', ['categoryid' => $categoryid]);
 
 if ($confirm && isloggedin() && confirm_sesskey()) {
     $task = new \tool_hidecourses\task\hide_courses_task();
     $task->set_custom_data(
-        array(
+        [
             'category' => $categoryid,
             'action' => $action,
-        )
+        ]
     );
     \core\task\manager::queue_adhoc_task($task);
     redirect($returnurl, get_string('updatequeued', 'tool_hidecourses', $category->name));
 }
 
 // Current location.
-$url = new \moodle_url('/admin/tool/hidecourses/courses.php',
-    array(
+$url = new \moodle_url(
+    '/admin/tool/hidecourses/courses.php',
+    [
         'category' => $categoryid,
         'action' => $action,
-    )
+    ]
 );
 
 $customtext = new stdClass();
@@ -76,17 +77,18 @@ switch ($action) {
 $PAGE->set_context($context);
 $PAGE->set_pagelayout('admin');
 $PAGE->set_url($url);
-$PAGE->set_title(new lang_string('coursecatmanagement') . ': '. $actionstring);
+$PAGE->set_title(new lang_string('coursecatmanagement') . ': ' . $actionstring);
 $PAGE->set_heading($SITE->fullname);
 
 // Confirmation URL.
-$confirmurl = new \moodle_url('/admin/tool/hidecourses/courses.php',
-    array(
+$confirmurl = new \moodle_url(
+    '/admin/tool/hidecourses/courses.php',
+    [
         'category' => $categoryid,
         'action' => $action,
         'confirm' => 1,
         'sesskey' => sesskey(),
-    )
+    ]
 );
 
 // Print page.

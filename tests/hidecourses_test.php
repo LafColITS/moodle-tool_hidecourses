@@ -31,7 +31,7 @@ use advanced_testcase;
 use tool_hidecourses\task\hide_courses_task;
 
 global $CFG;
-require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
+require_once($CFG->dirroot . '/admin/tool/hidecourses/locallib.php');
 
 /**
  * Unit test for hiding and showing courses.
@@ -49,25 +49,25 @@ class hidecourses_test extends advanced_testcase {
 
         $this->getDataGenerator()->create_user();
         $category1 = $this->getDataGenerator()->create_category();
-        $category2 = $this->getDataGenerator()->create_category(array('parent' => $category1->id));
-        $this->getDataGenerator()->create_course(array('category' => $category1->id));
+        $category2 = $this->getDataGenerator()->create_category(['parent' => $category1->id]);
+        $this->getDataGenerator()->create_course(['category' => $category1->id]);
         for ($i = 1; $i <= 100; $i++) {
-            $this->getDataGenerator()->create_course(array('category' => $category2->id));
+            $this->getDataGenerator()->create_course(['category' => $category2->id]);
         }
 
         // Sanity check.
-        $visiblecourses = $DB->count_records('course', array('category' => $category1->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category1->id, 'visible' => 1]);
         $this->assertEquals(1, $visiblecourses);
-        $visiblecourses = $DB->count_records('course', array('category' => $category2->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category2->id, 'visible' => 1]);
         $this->assertEquals(100, $visiblecourses);
 
         // Set courses to hidden.
         $task = new hide_courses_task();
         $task->set_custom_data(
-            array(
+            [
                 'category' => $category1->id,
                 'action' => TOOL_HIDECOURSES_ACTION_HIDE,
-            )
+            ]
         );
         \core\task\manager::queue_adhoc_task($task);
         $task = \core\task\manager::get_next_adhoc_task(time());
@@ -76,18 +76,18 @@ class hidecourses_test extends advanced_testcase {
         \core\task\manager::adhoc_task_complete($task);
 
         // All courses should be hidden.
-        $visiblecourses = $DB->count_records('course', array('category' => $category1->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category1->id, 'visible' => 1]);
         $this->assertEquals(0, $visiblecourses);
-        $visiblecourses = $DB->count_records('course', array('category' => $category2->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category2->id, 'visible' => 1]);
         $this->assertEquals(0, $visiblecourses);
 
         // Restore the subcategory only.
         $task = new hide_courses_task();
         $task->set_custom_data(
-            array(
+            [
                 'category' => $category2->id,
                 'action' => TOOL_HIDECOURSES_ACTION_SHOW,
-            )
+            ]
         );
         \core\task\manager::queue_adhoc_task($task);
         $task = \core\task\manager::get_next_adhoc_task(time());
@@ -96,9 +96,9 @@ class hidecourses_test extends advanced_testcase {
         \core\task\manager::adhoc_task_complete($task);
 
         // Courses in the subcategory are now visible.
-        $visiblecourses = $DB->count_records('course', array('category' => $category1->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category1->id, 'visible' => 1]);
         $this->assertEquals(0, $visiblecourses);
-        $visiblecourses = $DB->count_records('course', array('category' => $category2->id, 'visible' => 1));
+        $visiblecourses = $DB->count_records('course', ['category' => $category2->id, 'visible' => 1]);
         $this->assertEquals(100, $visiblecourses);
     }
 }

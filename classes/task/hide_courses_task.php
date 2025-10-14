@@ -26,7 +26,7 @@ namespace tool_hidecourses\task;
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot.'/admin/tool/hidecourses/locallib.php');
+require_once($CFG->dirroot . '/admin/tool/hidecourses/locallib.php');
 
 /**
  * Adhoc task for setting the viewable state of courses.
@@ -60,7 +60,7 @@ class hide_courses_task extends \core\task\adhoc_task {
         }
 
         $actionfunction = '';
-        switch($data->action) {
+        switch ($data->action) {
             case TOOL_HIDECOURSES_ACTION_HIDE:
                 $actionfunction = 'action_course_hide';
                 break;
@@ -81,10 +81,10 @@ class hide_courses_task extends \core\task\adhoc_task {
             return;
         }
         $courses = $category->get_courses(
-            array(
+            [
                 'recursive' => true,
                 'limit' => 0,
-            )
+            ]
         );
         foreach ($courses as $course) {
             $context = \context_course::instance($course->id);

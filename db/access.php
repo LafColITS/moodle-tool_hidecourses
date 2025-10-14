@@ -24,13 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$capabilities = array(
-    'tool/hidecourses:hidecourses' => array(
+$capabilities = [
+    'tool/hidecourses:hidecourses' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSECAT,
-        'archetypes' => array(
+        'archetypes' => [
             'manager' => CAP_ALLOW,
-        ),
+        ],
         'clonepermissionsfrom' => 'moodle/category:manage',
-    ),
-);
+    ],
+];

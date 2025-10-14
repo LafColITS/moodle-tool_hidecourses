@@ -35,26 +35,26 @@ function tool_hidecourses_extend_navigation_category_settings($navigation, $cont
                 get_string('hideallcourses', 'tool_hidecourses'),
                 new moodle_url(
                     "/admin/tool/hidecourses/courses.php",
-                    array('category' => $context->instanceid, 'action' => 0)
+                    ['category' => $context->instanceid, 'action' => 0]
                 ),
                 navigation_node::TYPE_SETTING,
                 null,
                 null,
                 new pix_icon('i/settings', '')
-                )
-            );
+            )
+        );
         $navigation->add_node(
             navigation_node::create(
                 get_string('showallcourses', 'tool_hidecourses'),
                 new moodle_url(
                     "/admin/tool/hidecourses/courses.php",
-                    array('category' => $context->instanceid, 'action' => 1)
+                    ['category' => $context->instanceid, 'action' => 1]
                 ),
                 navigation_node::TYPE_SETTING,
                 null,
                 null,
                 new pix_icon('i/settings', '')
-                )
-            );
+            )
+        );
     }
 }
