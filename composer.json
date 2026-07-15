@@ -1,0 +1,12 @@
+{
+    "name": "lafayettecollege/moodle-tool_hidecourses",
+    "description": "This admin tool allows managers to set all courses in a category (including subcategories) to either hidden from, or visible to, students.",
+    "type": "moodle-tool",
+    "require": {
+        "composer/installers": "*"
+    },
+    "license": "GPL-3.0-or-later",
+    "extra": {
+        "installer-name": "hidecourses"
+    }
+}
