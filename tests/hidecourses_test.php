@@ -37,11 +37,12 @@ require_once($CFG->dirroot . '/admin/tool/hidecourses/locallib.php');
  * Unit test for hiding and showing courses.
  *
  * @package   tool_hidecourses
+ * @covers    \tool_hidecourses\task\hide_courses_task
  * @copyright 2017 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class hidecourses_test extends advanced_testcase {
-    public function test_hide_course() {
+final class hidecourses_test extends advanced_testcase {
+    public function test_hide_course(): void {
         global $DB;
 
         $this->setAdminUser();
