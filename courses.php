@@ -70,7 +70,7 @@ switch ($action) {
         $customtext->state = new lang_string('visible', 'tool_hidecourses');
         break;
     default:
-        print_error('invalidactionid', 'tool_hidecourses', $returnurl);
+        throw new moodle_exception('invalidactionid', 'tool_hidecourses', $returnurl);
         break;
 }
 
